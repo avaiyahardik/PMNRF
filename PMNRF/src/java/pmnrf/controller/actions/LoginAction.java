@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pmnrf.controller.Action;
 import pmnrf.model.User;
+import pmnrf.model.sessions.SessionManager;
 
 /**
  *
@@ -27,6 +28,7 @@ public class LoginAction implements Action {
             boolean isValid=new DBManager().validUser(user);
             if(isValid){
                 request.getSession().setAttribute("username",username);
+                SessionManager.openSession(request, response,username, password);
                 return "index.jsp";
             }    
             return "login.jsp";
