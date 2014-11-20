@@ -13,7 +13,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>SB Admin 2 - Bootstrap Admin Theme</title><!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet"><!-- MetisMenu CSS -->
         <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet"><!-- Timeline CSS -->
         <link href="css/plugins/timeline.css" rel="stylesheet"><!-- Custom CSS -->
@@ -241,7 +240,7 @@
                         <ul class="dropdown-menu dropdown-user">
                             <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                             </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            <li><a href="changePassword.jsp"><i class="fa fa-gear fa-fw"></i> Change Password</a>
                             </li>
                             <li class="divider"></li>
                             <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

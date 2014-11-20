@@ -1,0 +1,18 @@
+SMAP
+addNewAuthority_jsp.java
+JSP
+*S JSP
+*F
++ 0 addNewAuthority.jsp
+addNewAuthority.jsp
++ 1 header.jsp
+header.jsp
++ 2 leftMaster.jsp
+leftMaster.jsp
+*L
+1,39:50
+5#1,255:89
+39#0,2:343
+5#2,107:345
+40#0,93:451
+*E
