@@ -54,17 +54,17 @@
                                         <form role="form" action="Controller" method="get">
                                             <div class="form-group">
                                                 <label> Current Password </label>
-                                                <input class="form-control" type="password">
+                                                <input class="form-control" type="password" name="currentpassword">
                                                 <p class="help-block">Give currrent password.</p>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label>New Password</label>
-                                                <input class="form-control" placeholder="Password" type="password" />
+                                                <input class="form-control" name="newpassword" placeholder="Password" type="password" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Confirm Password</label>
-                                                <input class="form-control" placeholder="Confirm Password" type="password" />
+                                                <input class="form-control" placeholder="Confirm Password" name="confirmpassword" type="password" />
                                             </div>
                                             
                                             <button type="submit" class="btn btn-default" name="add_disaster">Change Password</button>

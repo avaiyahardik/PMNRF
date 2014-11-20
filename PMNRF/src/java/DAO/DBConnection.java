@@ -17,19 +17,20 @@ public class DBConnection {
     
     
     private static Connection conn=null;
-    private static String Driver="org.postgresql.Driver";
-    private static String user="postgres";
-    private static String password="ahir";
-    private static String DBUser="postgres";
+    private static String Driver="com.mysql.jdbc.Driver";
+    private static String user="pmnrf";
+    private static String password="pmnrf@1111";
+   // private static String DBUser="postgres";
     
     
     public static Connection open() throws ClassNotFoundException , SQLException {
         
         Class.forName(Driver);
         
-        conn=DriverManager.getConnection("jdbc:postgresql://localhost:5432/", user, password);
+        //conn=DriverManager.getConnection("jdbc:postgresql://localhost:5432/", user, password);
+        conn=DriverManager.getConnection("jdbc:mysql://db4free.net/pmnrf", user, password);
         Statement stmt=conn.createStatement();
-        stmt.execute("set search_path to public;");
+        //stmt.execute("set search_path to public;");
         return conn;
     }
     
