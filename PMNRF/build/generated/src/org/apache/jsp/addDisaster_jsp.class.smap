@@ -1,0 +1,18 @@
+SMAP
+addDisaster_jsp.java
+JSP
+*S JSP
+*F
++ 0 addDisaster.jsp
+addDisaster.jsp
++ 1 header.jsp
+header.jsp
++ 2 leftMaster.jsp
+leftMaster.jsp
+*L
+1,17:50
+5#1,254:67
+17#0,2:320
+5#2,118:322
+18#0,112:439
+*E

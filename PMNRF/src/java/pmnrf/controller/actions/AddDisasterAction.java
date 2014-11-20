@@ -16,7 +16,11 @@ public class AddDisasterAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
+        
+        
+        
+        return "error.jsp?msg=okay harshad";
     }
     
     

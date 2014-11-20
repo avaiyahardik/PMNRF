@@ -6,6 +6,8 @@ package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import pmnrf.model.Disaster;
+import pmnrf.model.DisasterAuthority;
 import pmnrf.model.User;
 /**
  *
@@ -69,5 +71,40 @@ public class DBManager  implements DBOperation {
            conn.close();
                     
         }
+    }
+    
+    public void createDisaster(Disaster disaster) throws Exception{
+        
+        try{
+            /*Connection conn=DBConnection.open();
+            String sql="insert into disaster(disastername,disastertype,city,state,dateofoccurence,description) values (?,?,?,?,?,?)";
+            PreparedStatement ps=conn.prepareStatement(sql);
+            ps.setString(1,user.getEmail().toString().trim());
+            ps.setString(2,user.getFirstName().toString());
+            ps.setString(3,user.getLastname().toString());
+            ps.setString(4,UtilsSecure.encrypt(user.getPassword().toString()));
+            ps.setString(5, user.getGender().toString());
+            System.out.println("Inside create user............");
+            ps.setString(6,user.getPhotoPath());
+            ps.setBoolean(7,user.isIsActive());
+            ps.setBoolean(8,user.isIsFBUser());
+            
+            int count=ps.executeUpdate();
+            conn.close();
+            if(count==1){
+                Role personalRole=new Role("Personal","Default Personal Goal");
+                personalRole.setShared(false);
+                createRole(personalRole,user.getEmail());
+            }else {
+                throw new DAOException("Record Not Inserted ");
+            }*/
+        }catch(Exception e){
+            throw new Exception("Connection Error in create user"+e.toString());
+        }
+    }
+
+    @Override
+    public void createDisaster(User user) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
