@@ -62,7 +62,7 @@
                                         <a href="addNewAuthority.jsp">Add Authority</a>
                                     </li>
                                     <li>
-                                        <a href="deleteAuthority.jsp">Delete Authority</a>
+                                        <a href="Controller?action=loadAuthority">Delete Authority</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

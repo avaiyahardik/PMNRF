@@ -5,34 +5,30 @@
 package pmnrf.controller.actions;
 
 import DAO.DBManager;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pmnrf.controller.Action;
-import pmnrf.model.Disaster;
+import pmnrf.model.DisasterAuthority;
 
 /**
  *
  * @author Shidhav
  */
-public class DeleteDisasterAction implements Action {
+public class LoadAuthorityAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         
-        String disasterType=request.getParameter("disasterType");
-        String disasterName=request.getParameter("disasterName");
-        
-        Disaster disaster=new Disaster(disasterName, disasterType);
+        String username=(String)request.getSession().getAttribute("username");
         DBManager dbm=new DBManager();
         try{
-            boolean flag=dbm.deleteDisaster(disaster);
-            if(flag){
-                return "index.jsp";
-            }
-            return "error.jsp";
+            List<DisasterAuthority> authorityList=dbm.getSubAuthority(username);
+            request.getSession().setAttribute("authorityList", authorityList);
+            return "deleteAuthority.jsp";
+            
         }catch(Exception e){
-            return "error.jsp";
+            return "error.jsp?msg="+e.toString();
         }
     }
-    
 }

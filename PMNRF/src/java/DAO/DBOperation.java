@@ -4,7 +4,9 @@
  */
 package DAO;
 
+import java.util.List;
 import pmnrf.model.Disaster;
+import pmnrf.model.DisasterAuthority;
 import pmnrf.model.User;
 
 /**
@@ -20,5 +22,12 @@ public interface DBOperation {
 
     public void changepassword(String username, String oldpassword, String newpassword) throws Exception;
 
+    public boolean deleteDisaster(Disaster disaster) throws Exception;
+    
+    public void createAuthority(DisasterAuthority authority) throws Exception;
+    
+    public List<DisasterAuthority> getSubAuthority(String username) throws Exception;
+    
+    public boolean deleteAuthority(String authorityName) throws Exception;
     
 }

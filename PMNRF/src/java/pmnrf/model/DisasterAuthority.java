@@ -18,7 +18,33 @@ public class DisasterAuthority {
     private String state;
     private int pincode;
     private String type;
+    private String superAuthority;
 
+    public DisasterAuthority(String username, String email, String password, String city, String address, String state, int pincode, String type, String superAuthority) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.city = city;
+        this.address = address;
+        this.state = state;
+        this.pincode = pincode;
+        this.type = type;
+        this.superAuthority = superAuthority;
+    }
+
+    public DisasterAuthority() {
+    }
+
+    
+    
+    public String getSuperAuthority() {
+        return superAuthority;
+    }
+
+    public void setSuperAuthority(String superAuthority) {
+        this.superAuthority = superAuthority;
+    }
+    
     public String getAddress() {
         return address;
     }

@@ -6,39 +6,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
-        <!-- Bootstrap Core CSS -->
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>New Authority</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- MetisMenu CSS -->
         <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-        <!-- Custom CSS -->
         <link href="css/sb-admin-2.css" rel="stylesheet">
-
-        <!-- Custom Fonts -->
         <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
     </head>
-
     <body>
-
         <div id="wrapper">
-
             <%@include  file="header.jsp" %>
             <%@include  file="leftMaster.jsp" %>
-
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
@@ -59,12 +38,12 @@
                                         <form role="form" action="Controller" method="get">
                                             <div class="form-group">
                                                 <label> Username </label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="username">
                                                 <p class="help-block">Give authority username.</p>
                                             </div>
                                             <div class="form-group">
                                                 <label for="disabledSelect">Select Authority Type</label>
-                                                <select id="disabledSelect" class="form-control">
+                                                <select id="disabledSelect" class="form-control" name="authorityType" >
                                                     <option>State Agency</option>
                                                     <option>Central Agency</option>
                                                     <option>NGO</option>
@@ -72,30 +51,34 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Enter Email ID</label>
-                                                <input class="form-control" placeholder="Enter Email ID">
+                                                <input class="form-control" placeholder="Enter Email ID" name="email" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input class="form-control" placeholder="Password" type="password" />
+                                                <input class="form-control" placeholder="Password" type="password" name="password" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Confirm Password</label>
+                                                <input class="form-control" placeholder="Confirm Password" type="password" name="confirmPassword" />
                                             </div>
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input class="form-control" placeholder="City Name" />
+                                                <input class="form-control" placeholder="City Name" name="city" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Pincode</label>
-                                                <input class="form-control" placeholder="6 Digit Pincode" />
+                                                <input class="form-control" placeholder="6 Digit Pincode" name="pincode" />
                                             </div>
                                             <div class="form-group">
                                                 <label> State </label>
-                                                <input class="form-control" placeholder="State Name" />
+                                                <input class="form-control" placeholder="State Name" name="state" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <textarea class="form-control" rows="3"></textarea>
+                                                <textarea class="form-control" rows="3" name="address" ></textarea>
                                             </div>
-                                            <button type="submit" class="btn btn-default" name="add_disaster">Save Authority</button>
-                                            <button type="reset" class="btn btn-default" name="cancel_add_disaster">Cancel</button>
+                                            <button type="submit" class="btn btn-default" name="action" value="add_authority">Save Authority</button>
+                                            <button type="reset" class="btn btn-default" name="action" value="cancel_add_authority">Cancel</button>
                                         </form>
                                     </div>
                                 </div>

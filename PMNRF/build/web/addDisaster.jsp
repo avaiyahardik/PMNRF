@@ -33,7 +33,7 @@
                             <div class="panel-body">
                                 <div class="row" style="margin-left: 50px;" >
                                     <div class="col-lg-6">
-                                        <form role="form" action="Controller" method="get" enctype="multipart/form-data" >
+                                        <form role="form" action="Controller" method="post" enctype="multipart/form-data" >
                                             <div class="form-group">
                                                 <label>Disaster Name </label>
                                                 <input class="form-control" name="disasterName" >
