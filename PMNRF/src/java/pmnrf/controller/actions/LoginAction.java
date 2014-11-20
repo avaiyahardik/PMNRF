@@ -26,6 +26,7 @@ public class LoginAction implements Action {
         try {
             boolean isValid=new DBManager().validUser(user);
             if(isValid){
+                request.getSession().setAttribute("username",username);
                 return "index.jsp";
             }    
             return "login.jsp";

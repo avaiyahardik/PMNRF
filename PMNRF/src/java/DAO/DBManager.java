@@ -25,7 +25,7 @@ public class DBManager  implements DBOperation {
           
                assert conn!=null;
                
-               PreparedStatement ps=conn.prepareStatement("update users set password=? where username=? and password=? ");
+               PreparedStatement ps=conn.prepareStatement("update user set password=? where username=? and password=? ");
                
                ps.setString(1,newpassword.trim());
                ps.setString(2, username.trim());
@@ -48,7 +48,7 @@ public class DBManager  implements DBOperation {
     public boolean validUser(User user) throws Exception {
         try{
             conn=DBConnection.open();
-            String sql="select * from harshad.users where username=? and password=?";
+            String sql="select * from user where username=? and password=?";
             PreparedStatement ps=conn.prepareStatement(sql);
             ps.setString(1,user.getUsername());
             ps.setString(2,user.getPassword());
@@ -66,7 +66,7 @@ public class DBManager  implements DBOperation {
                 return false;
             }
         }catch(Exception e){
-            throw new Exception("Error in Valiuser ");
+            throw new Exception("Error in Validuser "+ e.toString());
         }finally {
            conn.close();
                     

@@ -243,7 +243,7 @@
                             <li><a href="changePassword.jsp"><i class="fa fa-gear fa-fw"></i> Change Password</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -253,5 +253,7 @@
             </nav>
             <!-- /.navbar-top-links -->
         </div>
+        
     </body>
+   
 </html>
