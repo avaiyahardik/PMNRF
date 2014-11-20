@@ -20,6 +20,18 @@ public class Disaster {
     private Date dateOfOccurence;
     private String description;
 
+    public Disaster(String disasterName, String type, String city, String state, Date dateOfOccurence, String description) {
+        this.disasterName = disasterName;
+        this.type = type;
+        this.city = city;
+        this.state = state;
+        this.dateOfOccurence = dateOfOccurence;
+        this.description = description;
+    }
+
+    
+    
+    
     public String getCity() {
         return city;
     }

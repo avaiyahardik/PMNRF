@@ -52,6 +52,10 @@
                                                 <input class="form-control" placeholder="Enter city name" name="city" />
                                             </div>
                                             <div class="form-group">
+                                                <label>Disaster Occurence Date</label>
+                                                <input class="form-control" type="date" name="dateOfOccurence" />
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="disabledSelect">Select State</label>
                                                 <select id="disabledSelect" class="form-control" name="state" />
                                                     <option>Gujarat</option>
