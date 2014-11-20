@@ -20,5 +20,6 @@ public interface DBOperation {
 
     public void changepassword(String username, String oldpassword, String newpassword) throws Exception;
 
+    public boolean deleteDisaster(Disaster disaster) throws Exception;
     
 }

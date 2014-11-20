@@ -473,6 +473,10 @@ public final class addDisaster_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                <input class=\"form-control\" placeholder=\"Enter city name\" name=\"city\" />\n");
       out.write("                                            </div>\n");
       out.write("                                            <div class=\"form-group\">\n");
+      out.write("                                                <label>Disaster Occurence Date</label>\n");
+      out.write("                                                <input class=\"form-control\" type=\"date\" name=\"dateOfOccurence\" />\n");
+      out.write("                                            </div>\n");
+      out.write("                                            <div class=\"form-group\">\n");
       out.write("                                                <label for=\"disabledSelect\">Select State</label>\n");
       out.write("                                                <select id=\"disabledSelect\" class=\"form-control\" name=\"state\" />\n");
       out.write("                                                    <option>Gujarat</option>\n");

@@ -26,18 +26,15 @@ public class AddDisasterAction implements Action {
         String state=request.getParameter("state");
         String description=request.getParameter("description");
         String d=request.getParameter("dateOfOccurence");
-        Date date=new Date(d);
-        Disaster disaster=new Disaster(disasterName, disasterType, city, state, date, description);
+        Disaster disaster=new Disaster(disasterName, disasterType, city, state, d, description);
         DBManager dbm=new DBManager();
         try{
-            
+            dbm.createDisaster(disaster);
+            return "index.jsp";
             
         }catch(Exception e){
             return "error.jsp?msg="+e.toString();
         }
-        
-        
-        return "error.jsp?msg=okay harshad";
     }
     
     

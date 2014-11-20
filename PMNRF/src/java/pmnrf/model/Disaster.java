@@ -17,16 +17,21 @@ public class Disaster {
     private String type;
     private String city;
     private String state;
-    private Date dateOfOccurence;
+    private String dateOfOccurence;
     private String description;
 
-    public Disaster(String disasterName, String type, String city, String state, Date dateOfOccurence, String description) {
+    public Disaster(String disasterName, String type, String city, String state, String dateOfOccurence, String description) {
         this.disasterName = disasterName;
         this.type = type;
         this.city = city;
         this.state = state;
         this.dateOfOccurence = dateOfOccurence;
         this.description = description;
+    }
+
+    public Disaster(String disasterName, String type) {
+        this.disasterName = disasterName;
+        this.type = type;
     }
 
     
@@ -40,11 +45,11 @@ public class Disaster {
         this.city = city;
     }
 
-    public Date getDateOfOccurence() {
+    public String getDateOfOccurence() {
         return dateOfOccurence;
     }
 
-    public void setDateOfOccurence(Date dateOfOccurence) {
+    public void setDateOfOccurence(String dateOfOccurence) {
         this.dateOfOccurence = dateOfOccurence;
     }
 

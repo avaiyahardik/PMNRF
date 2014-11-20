@@ -3,16 +3,15 @@
 
     <head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>SB Admin 2 - Bootstrap Admin Theme</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="" />
+        <title>Delete Disaster</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-        <link href="css/sb-admin-2.css" rel="stylesheet">
-        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet" />
+        <link href="css/sb-admin-2.css" rel="stylesheet" />
+        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div id="wrapper">
@@ -40,15 +39,20 @@
                                             </div>
                                             <div class="form-group" style="margin-top: 30px;">
                                                 <label for="disabledSelect">Select Disaster Type</label>
-                                                <select id="disabledSelect" class="form-control">
+                                                <select id="disabledSelect" class="form-control" name="disasterType" >
                                                     <option>Flood</option>
                                                     <option>Earth Quate</option>
                                                     <option>Riots</option>
                                                 </select>
                                             </div>
+                                            <div class="form-group">
+                                                <label>Disaster Name </label>
+                                                <input class="form-control" name="disasterName" />
+                                                <p class="help-block">Give Disaster Name here.</p>
+                                            </div>
                                             <div style="margin-top: 30px;">
-                                                <button type="submit" class="btn btn-default" name="add_disaster">Delete Disaster</button>
-                                                <button type="reset" class="btn btn-default" name="cancel_add_disaster">Cancel</button>
+                                                <button type="submit" class="btn btn-default" name="action" value="delete_disaster">Delete Disaster</button>
+                                                <button type="reset" class="btn btn-default" name="action" value="cancel">Cancel</button>
                                             </div>
                                         </form>
                                     </div>
@@ -64,10 +68,8 @@
                 <!-- /.row -->
             </div>
             <!-- /#page-wrapper -->
-
         </div>
         <!-- /#wrapper -->
-
         <!-- jQuery -->
         <script src="js/jquery.js"></script>
 

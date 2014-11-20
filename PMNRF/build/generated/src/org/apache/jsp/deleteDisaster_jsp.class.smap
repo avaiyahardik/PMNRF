@@ -5,6 +5,14 @@ JSP
 *F
 + 0 deleteDisaster.jsp
 deleteDisaster.jsp
++ 1 header.jsp
+header.jsp
++ 2 leftMaster.jsp
+leftMaster.jsp
 *L
-1,466:44
+1,19:50
+5#1,254:69
+19#0,2:322
+5#2,118:324
+20#0,70:441
 *E

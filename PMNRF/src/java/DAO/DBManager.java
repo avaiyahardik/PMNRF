@@ -16,6 +16,30 @@ import pmnrf.model.User;
 public class DBManager  implements DBOperation {
 
     private static Connection conn;
+
+    @Override
+    public boolean deleteDisaster(Disaster disaster) throws Exception {
+        
+        try{
+            Connection conn=DBConnection.open();
+               PreparedStatement ps=conn.prepareStatement("delete from disaster where disastertype=? and disastername=?");               
+               ps.setString(1,disaster.getType());
+               ps.setString(2, disaster.getDisasterName());
+               //PreparedStatement ps=conn.prepareStatement("insert into goal(roleid,goalname,description,priority,flag,startingdate,expectedenddate,actualenddate) values(4,'Goal1','descruption','p','f','start','end','aend')");
+               int count=ps.executeUpdate();
+               conn.close();
+               if(count>0){ 
+                   return true;
+               }
+               else {
+                   return false;
+               }
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
+    
     @Override
     public void changepassword(String username, String oldpassword, String newpassword) throws Exception 
     {
@@ -48,7 +72,7 @@ public class DBManager  implements DBOperation {
     public boolean validUser(User user) throws Exception {
         try{
             conn=DBConnection.open();
-            String sql="select * from harshad.users where username=? and password=?";
+            String sql="select * from user where username=? and password=?";
             PreparedStatement ps=conn.prepareStatement(sql);
             ps.setString(1,user.getUsername());
             ps.setString(2,user.getPassword());
@@ -79,14 +103,12 @@ public class DBManager  implements DBOperation {
             String sql="insert into disaster(disastername,disastertype,city,state,dateofoccurence,description) values (?,?,?,?,?,?)";
             PreparedStatement ps=conn.prepareStatement(sql);
             
-            ps.setString(2,disaster.getDisasterName());
-            ps.setString(3,disaster.getType());
-            ps.setString(4,disaster.getCity());
-            ps.setString(5,disaster.getState());
-            java.util.Date d=disaster.getDateOfOccurence();
-            java.sql.Date date=new java.sql.Date(d.getYear(), d.getMonth(), d.getDate());
-            ps.setDate(6,date);
-            ps.setString(7, disaster.getDescription());
+            ps.setString(1,disaster.getDisasterName());
+            ps.setString(2,disaster.getType());
+            ps.setString(3,disaster.getCity());
+            ps.setString(4,disaster.getState());
+            ps.setString(5,disaster.getDateOfOccurence());
+            ps.setString(6, disaster.getDescription());
             int count=ps.executeUpdate();
             conn.close();
             if(count==1){

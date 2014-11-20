@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package DAO;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -14,8 +13,7 @@ import java.sql.Statement;
  * @author Shidhav
  */
 public class DBConnection {
-    
-    
+        
     private static Connection conn=null;
     private static String Driver="com.mysql.jdbc.Driver";
     private static String user="pmnrf";
