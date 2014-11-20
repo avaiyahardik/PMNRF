@@ -5,6 +5,7 @@
 package pmnrf.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -24,12 +25,23 @@ public class User {
     private Date bdate;
     private String photopath;
     private String password;
-
+    List<Account> accounts;
+    
     
     public User(String username,String password){
         this.username=username;
         this.password=password;
     }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+    
+    
     public String getPassword() {
         return password;
     }
