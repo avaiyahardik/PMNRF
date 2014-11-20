@@ -1,0 +1,18 @@
+SMAP
+deleteAuthority_jsp.java
+JSP
+*S JSP
+*F
++ 0 deleteAuthority.jsp
+deleteAuthority.jsp
++ 1 header.jsp
+header.jsp
++ 2 leftMaster.jsp
+leftMaster.jsp
+*L
+1,19:50
+5#1,256:69
+19#0,2:324
+5#2,118:326
+20#0,67:443
+*E

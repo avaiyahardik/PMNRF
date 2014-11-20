@@ -1,18 +1,29 @@
+<%@page import="java.util.List"%>
+<%@page import="pmnrf.model.DisasterAuthority"%>
+<%@page import="pmnrf.model.Disaster"%>
 <!DOCTYPE html>
+
+<%! 
+    Object obj;
+    List<DisasterAuthority> authorityList=null;
+%>
+<% 
+    obj=request.getSession().getAttribute("authorityList");
+    authorityList=(List<DisasterAuthority>)obj;
+%>
+
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>SB Admin 2 - Bootstrap Admin Theme</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-        <link href="css/sb-admin-2.css" rel="stylesheet">
-        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <title>Delete Authority</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet"/>
+        <link href="css/sb-admin-2.css" rel="stylesheet"/>
+        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div id="wrapper">
@@ -40,15 +51,22 @@
                                             </div>
                                             <div class="form-group" style="margin-top: 30px;">
                                                 <label for="disabledSelect">Select Authority </label>
-                                                <select id="disabledSelect" class="form-control">
-                                                    <option>Agency - I</option>
-                                                    <option>Agency - II</option>
-                                                    <option>Agency - III</option>
+                                                <select id="disabledSelect" class="form-control" name="authorityName" >    
+                                                <% if(obj!=null)  
+                                                    {         
+                                                            for(DisasterAuthority d: authorityList)
+                                                            {
+                                                %>
+                                                                <option><%= d.getUsername() %></option>
+                                                            <%
+                                                            }
+                                                    }
+                                                            %>
                                                 </select>
                                             </div>
                                             <div style="margin-top: 30px;">
-                                                <button type="submit" class="btn btn-default" name="add_disaster">Delete Authority</button>
-                                                <button type="reset" class="btn btn-default" name="cancel_add_disaster">Cancel</button>
+                                                <button type="submit" class="btn btn-default" name="action" value="delete_authority">Delete Authority</button>
+                                                <button type="reset" class="btn btn-default" name="action" value="cancel">Cancel</button>
                                             </div>
                                         </form>
                                     </div>

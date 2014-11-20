@@ -43,7 +43,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="disabledSelect">Select Authority Type</label>
-                                                <select id="disabledSelect" class="form-control">
+                                                <select id="disabledSelect" class="form-control" name="authorityType" >
                                                     <option>State Agency</option>
                                                     <option>Central Agency</option>
                                                     <option>NGO</option>
@@ -51,30 +51,34 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Enter Email ID</label>
-                                                <input class="form-control" placeholder="Enter Email ID">
+                                                <input class="form-control" placeholder="Enter Email ID" name="email" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input class="form-control" placeholder="Password" type="password" />
+                                                <input class="form-control" placeholder="Password" type="password" name="password" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Confirm Password</label>
+                                                <input class="form-control" placeholder="Confirm Password" type="password" name="confirmPassword" />
                                             </div>
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input class="form-control" placeholder="City Name" />
+                                                <input class="form-control" placeholder="City Name" name="city" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Pincode</label>
-                                                <input class="form-control" placeholder="6 Digit Pincode" />
+                                                <input class="form-control" placeholder="6 Digit Pincode" name="pincode" />
                                             </div>
                                             <div class="form-group">
                                                 <label> State </label>
-                                                <input class="form-control" placeholder="State Name" />
+                                                <input class="form-control" placeholder="State Name" name="state" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <textarea class="form-control" rows="3"></textarea>
+                                                <textarea class="form-control" rows="3" name="address" ></textarea>
                                             </div>
-                                            <button type="submit" class="btn btn-default" name="add_disaster">Save Authority</button>
-                                            <button type="reset" class="btn btn-default" name="cancel_add_disaster">Cancel</button>
+                                            <button type="submit" class="btn btn-default" name="action" value="add_authority">Save Authority</button>
+                                            <button type="reset" class="btn btn-default" name="action" value="cancel_add_authority">Cancel</button>
                                         </form>
                                     </div>
                                 </div>
