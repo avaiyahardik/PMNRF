@@ -22,7 +22,7 @@ public class ChangePasswordAction implements Action {
         
         
          Object obj = request.getSession().getAttribute("username");
-        String oldpassword=request.getParameter("oldpassword");
+        String oldpassword=request.getParameter("currentpassword");
         String username = null;
         if (obj != null) {
             username = obj.toString();
@@ -36,6 +36,6 @@ public class ChangePasswordAction implements Action {
         } catch (Exception ex) {
             System.out.println("Error in change password :"+ ex.toString());
         }
-        return "indexafterlogin.jsp";
+        return "index.jsp";
     }
 }
