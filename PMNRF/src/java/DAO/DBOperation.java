@@ -14,4 +14,5 @@ public interface DBOperation {
      
     
     public boolean validUser(User user) throws Exception;
+    public void createDisaster(User user) throws Exception;
 }

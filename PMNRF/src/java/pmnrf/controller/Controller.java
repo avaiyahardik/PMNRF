@@ -23,6 +23,7 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
+            //response.getWriter().write("oaky");
             String theAction = request.getParameter("action");
             if (theAction == null) {
                 response.sendRedirect("login.jsp");
