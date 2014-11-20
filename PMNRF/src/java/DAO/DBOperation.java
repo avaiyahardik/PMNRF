@@ -15,5 +15,10 @@ public interface DBOperation {
      
     
     public boolean validUser(User user) throws Exception;
+
     public void createDisaster(Disaster disaster) throws Exception;
+
+    public void changepassword(String username, String oldpassword, String newpassword) throws Exception;
+
+    
 }
