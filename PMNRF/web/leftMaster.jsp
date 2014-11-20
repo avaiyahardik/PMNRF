@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>SB Admin 2 - Bootstrap Admin Theme</title><!-- Bootstrap Core CSS -->
+        <title>PMNRF-India</title><!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet"><!-- MetisMenu CSS -->
         <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet"><!-- Timeline CSS -->
         <link href="css/plugins/timeline.css" rel="stylesheet"><!-- Custom CSS -->
@@ -45,7 +45,10 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a class="active" href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                <a class="active" href="index.jsp">
+                                    <i class="fa fa-dashboard fa-fw"></i> 
+                                    
+                                </a>
                             </li>
                             
                             <li>
@@ -72,13 +75,13 @@
                                 <a href="#"><i class="fa fa-table fa-fw"></i>Certificates<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="panels-wells.html">Silver</a>
+                                        <a href="#">Silver</a>
                                     </li>
                                     <li>
-                                        <a href="buttons.html">Gold</a>
+                                        <a href="#">Gold</a>
                                     </li>
                                     <li>
-                                        <a href="notifications.html">Platinum</a>
+                                        <a href="#">Platinum</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -91,7 +94,7 @@
                                         <a href="blank.html">Blank Page</a>
                                     </li>
                                     <li>
-                                        <a href="login.html">Login Page</a>
+                                        <a href="login.jsp">Login Page</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

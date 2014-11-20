@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import pmnrf.model.Disaster;
 import pmnrf.model.DisasterAuthority;
+import pmnrf.model.Photo;
 import pmnrf.model.User;
 
 /**
@@ -23,8 +24,8 @@ public class DBManager implements DBOperation {
 
     @Override
     public boolean deleteAuthority(String authorityName) throws Exception {
-        
-       try {
+
+        try {
             Connection conn = DBConnection.open();
             PreparedStatement ps = conn.prepareStatement("delete from disasterauthority where username=?");
             ps.setString(1, authorityName);
@@ -38,32 +39,32 @@ public class DBManager implements DBOperation {
             }
         } catch (Exception e) {
             return false;
-        }   
+        }
     }
-    
+
     @Override
     public List<DisasterAuthority> getSubAuthority(String username) throws Exception {
-        
-        try{
-            conn=DBConnection.open();
-            String sql="select * from disasterauthority where superauthority=?";
-            PreparedStatement ps=conn.prepareStatement(sql);
-            
-            ps.setString(1,username);
-            ResultSet rs=ps.executeQuery();
-            List<DisasterAuthority> authorityList=new ArrayList<DisasterAuthority>();
-            DisasterAuthority authority=null;
-            while(rs.next()){
-                authority=new DisasterAuthority();
+
+        try {
+            conn = DBConnection.open();
+            String sql = "select * from disasterauthority where superauthority=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            List<DisasterAuthority> authorityList = new ArrayList<DisasterAuthority>();
+            DisasterAuthority authority = null;
+            while (rs.next()) {
+                authority = new DisasterAuthority();
                 authority.setUsername(rs.getString(1));
                 authorityList.add(authority);
             }
             return authorityList;
-        }catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
     }
-    
+
     @Override
     public void createAuthority(DisasterAuthority authority) throws Exception {
 
@@ -72,16 +73,16 @@ public class DBManager implements DBOperation {
             String sql = "insert into disasterauthority values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setString(1,authority.getUsername());
-            ps.setString(2,authority.getType());
-            ps.setString(3,authority.getEmail());
-            ps.setString(4,authority.getCity());
-            ps.setString(5,authority.getState());
+            ps.setString(1, authority.getUsername());
+            ps.setString(2, authority.getType());
+            ps.setString(3, authority.getEmail());
+            ps.setString(4, authority.getCity());
+            ps.setString(5, authority.getState());
             ps.setInt(6, authority.getPincode());
-            ps.setString(7,authority.getAddress());
-            ps.setString(8,authority.getSuperAuthority());
-            ps.setString(9,authority.getPassword());
-            
+            ps.setString(7, authority.getAddress());
+            ps.setString(8, authority.getSuperAuthority());
+            ps.setString(9, authority.getPassword());
+
             int count = ps.executeUpdate();
             conn.close();
             if (count == 1) {
@@ -169,12 +170,32 @@ public class DBManager implements DBOperation {
         }
     }
 
+    @Override
+    public void saveFile(Photo photo) throws Exception {
+        
+        try {
+            conn = DBConnection.open();
+            String sql2 = "insert into disasterphotos(photopath,description,disasterid) values(?,?,?)";
+
+                PreparedStatement psPhoto = conn.prepareStatement(sql2);
+                psPhoto.setBinaryStream(1,photo.getIo());
+                psPhoto.setString(2,photo.getDescription());
+                psPhoto.setInt(3, getLastDisasterId());
+                psPhoto.executeUpdate();
+                return;
+        } catch (Exception e) {
+            throw new Exception("Connection Error in create user" + e.toString());
+        }finally {
+                conn.close();
+        }
+    }
+
     public void createDisaster(Disaster disaster) throws Exception {
         try {
-            Connection conn = DBConnection.open();
+            conn = DBConnection.open();
             String sql = "insert into disaster(disastername,disastertype,city,state,dateofoccurence,description) values (?,?,?,?,?,?)";
+            
             PreparedStatement ps = conn.prepareStatement(sql);
-
             ps.setString(1, disaster.getDisasterName());
             ps.setString(2, disaster.getType());
             ps.setString(3, disaster.getCity());
@@ -182,12 +203,32 @@ public class DBManager implements DBOperation {
             ps.setString(5, disaster.getDateOfOccurence());
             ps.setString(6, disaster.getDescription());
             int count = ps.executeUpdate();
-            conn.close();
+
             if (count == 1) {
+                List<Photo> list=disaster.getPhotos();
+                for(Photo p:list){
+                    saveFile(p);
+                }
                 return;
-            } else {
-                throw new Exception("Record Not Inserted ");
+            } 
+        } catch (Exception e) {
+            throw new Exception("Connection Error in create user" + e.toString());
+        }finally {
+            conn.close();
+        }
+    }
+
+    private int getLastDisasterId() throws Exception {
+        try {
+            Connection conn = DBConnection.open();
+            String sql = "select * from disaster order by disasterid desc";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt(1);
+                return id;
             }
+            return -1;
         } catch (Exception e) {
             throw new Exception("Connection Error in create user" + e.toString());
         }
