@@ -26,7 +26,6 @@
         <script src="js/plugins/morris/morris.min.js"></script>
         <script src="js/plugins/morris/morris-data.js"></script>
         <script src="js/sb-admin-2.js"></script>
-        
     </head>
     <body>
         <div id="wrapper">

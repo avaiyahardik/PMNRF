@@ -7,7 +7,11 @@ package DAO;
 import java.util.List;
 import pmnrf.model.Disaster;
 import pmnrf.model.DisasterAuthority;
+
 import pmnrf.model.Donation;
+
+import pmnrf.model.Photo;
+
 import pmnrf.model.User;
 
 /**
@@ -27,6 +31,8 @@ public interface DBOperation {
     public boolean deleteDisaster(Disaster disaster) throws Exception;
     
     public void createAuthority(DisasterAuthority authority) throws Exception;
+    
+    public void saveFile(Photo photo) throws Exception;
     
     public List<DisasterAuthority> getSubAuthority(String username) throws Exception;
     

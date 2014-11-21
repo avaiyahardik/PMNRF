@@ -4,7 +4,9 @@
  */
 package pmnrf.model;
 
+import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -20,6 +22,9 @@ public class Disaster {
     private String dateOfOccurence;
     private String description;
 
+    private  List<Photo> photos;
+    
+    
     public Disaster(String disasterName, String type, String city, String state, String dateOfOccurence, String description) {
         this.disasterName = disasterName;
         this.type = type;
@@ -34,9 +39,15 @@ public class Disaster {
         this.type = type;
     }
 
-    
-    
-    
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
+    }
+
+
     public String getCity() {
         return city;
     }
