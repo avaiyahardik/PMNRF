@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import pmnrf.model.Disaster;
 import pmnrf.model.DisasterAuthority;
+import pmnrf.model.Donation;
 import pmnrf.model.User;
 
 /**
@@ -123,7 +124,7 @@ public class DBManager implements DBOperation {
 
             assert conn != null;
 
-            PreparedStatement ps = conn.prepareStatement("update user set password=? where username=? and password=? ");
+            PreparedStatement ps = conn.prepareStatement("update disasterauthority set password=? where username=? and password=? ");
 
             ps.setString(1, newpassword.trim());
             ps.setString(2, username.trim());
@@ -190,6 +191,32 @@ public class DBManager implements DBOperation {
             }
         } catch (Exception e) {
             throw new Exception("Connection Error in create user" + e.toString());
+        }
+    }
+
+    @Override
+    public List<Donation> getDonationData() throws Exception {
+        try{
+            conn=DBConnection.open();
+            String sql="select * from (SELECT donorname,donationdate,donation.disasterid,donatedamount,certificatereceiptid,disastername,disastertype FROM donation join disaster on donation.disasterid=disaster.disasterid) as r join certificatereceived on certificatereceiptid=certificatereceived.receiptid";
+            PreparedStatement ps=conn.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            List<Donation> DonationList=new ArrayList<Donation>();
+            Donation d=null;
+            while(rs.next()){
+                d=new Donation();
+                d.setDonorname(rs.getString("donorname"));
+                d.setDonateamount(rs.getInt("donatedamount"));
+                d.setDonationdate(rs.getString("donationdate"));
+                d.setCertificateColor(rs.getString("certificatecolor"));
+                Disaster dis=new Disaster(rs.getString("disastername"),rs.getString("disastertype"));                
+                d.setDisaster(dis);
+                DonationList.add(d);
+                
+            }
+            return DonationList;
+        }catch(Exception e){
+            return null;
         }
     }
 }

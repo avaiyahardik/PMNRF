@@ -109,7 +109,7 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                                <a href="DonationTable.jsp"><i class="fa fa-table fa-fw"></i> Tables</a>
                             </li>
                         </ul>
                     </div>

@@ -7,6 +7,7 @@ package DAO;
 import java.util.List;
 import pmnrf.model.Disaster;
 import pmnrf.model.DisasterAuthority;
+import pmnrf.model.Donation;
 import pmnrf.model.User;
 
 /**
@@ -17,6 +18,7 @@ public interface DBOperation {
      
     
     public boolean validUser(User user) throws Exception;
+    public List<Donation> getDonationData() throws Exception;
 
     public void createDisaster(Disaster disaster) throws Exception;
 
