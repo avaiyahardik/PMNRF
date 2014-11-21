@@ -8,7 +8,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import pmnrf.model.Disaster;
 import pmnrf.model.DisasterAuthority;
 import pmnrf.model.Photo;
@@ -22,6 +24,53 @@ public class DBManager implements DBOperation {
 
     private static Connection conn;
 
+    @Override
+    public Disaster getDisaster(int id) throws Exception {
+        try{
+            conn=DBConnection.open();
+            String sql="select * from disaster where disasterid=?";
+            PreparedStatement ps=conn.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            Disaster d=new Disaster();
+            if(rs.next()){
+                
+                d.setDisasterName(rs.getString("disastername"));
+                d.setCity(rs.getString("city"));
+                d.setDateOfOccurence(rs.getString("dateofoccurence"));
+                d.setDescription(rs.getString("description"));
+                d.setDisasterid(getLastDisasterId());
+                d.setState(rs.getString("state"));
+                d.setType(rs.getString("disastertype"));
+            }
+            return d;
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    
+    
+    
+    
+    @Override
+    public Set getAllGCMUser() throws Exception {
+        
+        try{
+            conn=DBConnection.open();
+            String sql="select gcm_id from tbl_user";
+            PreparedStatement ps=conn.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            Set set=new HashSet();
+            while(rs.next()){
+                String id=rs.getString(1);
+                set.add(id);
+            }
+            return set;
+        }catch(Exception e){
+            return null;
+        }
+    }
+    
     @Override
     public boolean deleteAuthority(String authorityName) throws Exception {
 
@@ -218,7 +267,7 @@ public class DBManager implements DBOperation {
         }
     }
 
-    private int getLastDisasterId() throws Exception {
+    public int getLastDisasterId() throws Exception {
         try {
             Connection conn = DBConnection.open();
             String sql = "select * from disaster order by disasterid desc";

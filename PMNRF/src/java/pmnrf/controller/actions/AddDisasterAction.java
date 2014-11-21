@@ -17,6 +17,7 @@ import javax.servlet.http.Part;
 import pmnrf.controller.Action;
 import pmnrf.model.Disaster;
 import pmnrf.model.Photo;
+import pmnrf.util.Utilities;
 
 /**
  *
@@ -66,6 +67,9 @@ public class AddDisasterAction implements Action {
             }
             disaster.setPhotos(list);
             dbm.createDisaster(disaster);
+            Utilities u=new Utilities();
+            u.sentNotification();
+            
             return "index.jsp";
         } catch (Exception fne) {
             return "error.jsp?msg="+fne.toString();

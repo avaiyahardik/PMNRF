@@ -23,6 +23,9 @@ public class Disaster {
     private String description;
 
     private  List<Photo> photos;
+
+    public Disaster() {
+    }
     
     
     public Disaster(String disasterName, String type, String city, String state, String dateOfOccurence, String description) {

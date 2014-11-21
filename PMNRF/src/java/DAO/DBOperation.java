@@ -5,6 +5,7 @@
 package DAO;
 
 import java.util.List;
+import java.util.Set;
 import pmnrf.model.Disaster;
 import pmnrf.model.DisasterAuthority;
 import pmnrf.model.Photo;
@@ -16,6 +17,8 @@ import pmnrf.model.User;
  */
 public interface DBOperation {
      
+    
+    public Set getAllGCMUser() throws Exception;
     
     public boolean validUser(User user) throws Exception;
 
@@ -32,5 +35,7 @@ public interface DBOperation {
     public List<DisasterAuthority> getSubAuthority(String username) throws Exception;
     
     public boolean deleteAuthority(String authorityName) throws Exception;
+    
+    public Disaster getDisaster(int id) throws Exception;
     
 }
