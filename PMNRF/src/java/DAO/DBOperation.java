@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Set;
 import pmnrf.model.Disaster;
 import pmnrf.model.DisasterAuthority;
+
+import pmnrf.model.Donation;
+
 import pmnrf.model.Photo;
+
 import pmnrf.model.User;
 
 /**
@@ -21,6 +25,7 @@ public interface DBOperation {
     public Set getAllGCMUser() throws Exception;
     
     public boolean validUser(User user) throws Exception;
+    public List<Donation> getDonationData() throws Exception;
 
     public void createDisaster(Disaster disaster) throws Exception;
 
